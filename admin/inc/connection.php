@@ -7,5 +7,7 @@
    }else{
    	echo "Oh no!!";
    }
+   ob_start();
+   
 
 ?>

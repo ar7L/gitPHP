@@ -1,4 +1,4 @@
-<?php include("inc/connection.php");?>
+<?php include("inc/connection.php"); ?>
 
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css">
     <!-- Custom CSS -->
     <link href="css/style.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+
 </head>
 
 <body>

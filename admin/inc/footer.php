@@ -33,6 +33,15 @@
     <script src="plugins/bower_components/chartist/dist/chartist.min.js"></script>
     <script src="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
     <script src="js/pages/dashboards/dashboard1.js"></script>
+    <script>
+              $('document').ready(function()
+{
+    $('textarea').each(function(){
+            $(this).val($(this).val().trim());
+        }
+    );
+});
+    </script>
 </body>
 
 </html>
