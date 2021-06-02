@@ -17,6 +17,21 @@
    //  }else{
    //  	echo ":(";
    //  }
+   // $user_table = "CREATE TABLE users(
+   //                   u_id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+   //                   u_name VARCHAR(255) NOT NULL,
+   //                   u_image VARCHAR(255) NOT NULL,
+   //                   u_email VARCHAR(255) NOT NULL,
+   //                   u_address VARCHAR(255) NOT NULL,
+   //                   u_phone VARCHAR(50) NOT NULL,
+   //                   u_dob DATE NOT NULL,
+   //                   u_gender VARCHAR(10) NOT NULL
+   //                )";
+   // if(mysqli_query($conn , $user_table)){
+   //  echo "Users Table Created";
+   // }else{
+   //   echo mysqli_error($conn);
+   // }
 
    ob_start();
 

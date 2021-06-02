@@ -1,0 +1,6 @@
+.white-box{
+	overflow-x: scroll;
+}
+.white-box::-webkit-scrollbar{
+	display: none;
+}

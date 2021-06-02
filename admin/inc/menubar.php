@@ -1,5 +1,6 @@
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
+        <div class="slider">
         <aside class="left-sidebar" data-sidebarbg="skin6">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
@@ -60,13 +61,13 @@
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item">
-                                    <a href="index.html" class="sidebar-link">
+                                    <a href="users.php?do=Manage" class="sidebar-link">
                                         <i class="mdi mdi-adjust"></i>
                                         <span class="hide-menu"> View All users</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="index2.html" class="sidebar-link">
+                                    <a href="users.php?do=Add" class="sidebar-link">
                                         <i class="mdi mdi-adjust"></i>
                                         <span class="hide-menu"> Add New user </span>
                                     </a>
@@ -135,5 +136,5 @@
         </aside>
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-
+</div>
 <div class="page-wrapper">
