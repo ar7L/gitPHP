@@ -1,4 +1,6 @@
-<?php include("inc/connection.php"); ?>
+<?php include("inc/connection.php");
+      include("partials/Fun.php");
+  ?>
 
 <!DOCTYPE html>
 <html dir="ltr" lang="en">

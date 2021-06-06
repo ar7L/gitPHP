@@ -4,7 +4,7 @@
         <div class="white-box analytics-info">
             <ul class="">
             <div class="animate__animated animate__slideInLeft">
-            <form method = "POST">
+            <form method = "POST" enctype="multipart/form-data">
               <div class="row">    
               	<div class="col-md-6">
 	              	<label for="exampleFormControlInput" class="form-label">User Name</label>
@@ -32,7 +32,7 @@
               		<textarea name = "user_education" class="form-control my-3" name="" id="" cols="12" rows="3" placeholder="User Education"></textarea>
               		<div class="form-group">
               		<label for="exampleInputFile">Image</label><br>
-              		<input type="file" class="form-control-file" id = "exampleInputFile">
+              		<input type="file" name = "image" class="form-control-file" id = "exampleInputFile">
               		<small id = "fileHelp" class="form-text text-muted">Don't upload more than 1 mb file and make sure image formate is png,jpg,jpeg etc.</small>
               		</div>
               		<div class="form-group">
@@ -60,6 +60,7 @@
             <?php
                       if(isset($_POST['add_userr'])){
                       	// echo "button pressed";
+                      	    $extentions = array("jpg","png","jpg");
                             $user_name = $_POST["user_name"];
 							$user_email = $_POST["user_email"];
 							$user_password = $_POST["user_password"];
@@ -70,20 +71,34 @@
 							$user_education = $_POST["user_education"];
 							$user_role = $_POST["user_role"];
 							$user_status = $_POST["user_status"];
+							$image_name = $_FILES['image']['name'];
+							$tmp_name = $_FILES['image']['tmp_name'];
 		
 							$encrypt_pas = sha1($user_password);
 
-							// echo $user_email;
+							$art = array();
+							array_push($art,$user_name,$image_name,$user_email,$encrypt_pas,$user_address,$user_phone,$user_DOB,$user_gender,$user_education,$user_role,$user_status);
+						
 
-                            $sql_p2 = "INSERT INTO users (u_name,u_image,u_email,u_password,u_address,u_phone,u_dob,u_gender,u_education,u_role,u_status) VALUES ('$user_name','', '$user_email','$encrypt_pas','$user_address','$user_phone','$user_DOB','$user_gender','$user_education','$user_role','$user_status')";
-                            $p_conn2 = mysqli_query($conn , $sql_p2);
 
-                            if($p_conn2){
-                            	// header("Location : users.php");
-                            	echo "No problem";
-                            }else{
-                            	echo mysql_error($conn);
-                            }
+							if(empty($user_name) || empty($user_password) || empty($user_email) ||empty($image_name) ){
+								echo "<span class = 'alert alert-danger'>Fill All required fields </span>";
+							}else{
+								$extn = explode(".", $image_name);
+
+								if(in_array(strtolower($extn[1]), $extentions)){
+									move_uploaded_file($tmp_name, 'image/users/'.$image_name);
+									myInsert("users",$art,"users.php?do=Manage");
+									
+								}else{
+									echo "Please insert an image File";
+								}
+
+							}
+
+							
+
+							
 
                         }
                       

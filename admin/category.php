@@ -94,15 +94,10 @@
                         if(isset($_POST['add_cat'])){
                             $cat_name = $_POST['cat_name'];
                             $cat_desc = $_POST['cat_desc'];
-                            $sql_p = "INSERT INTO category (c_name,c_desc,c_status) VALUES ('$cat_name','$cat_desc', 0)";
-                            $p_conn = mysqli_query($conn , $sql_p);
-
-                            if($p_conn){
-                              header("location: category.php");
-                                
-                            }else{
-                                echo "oh! no";
-                            }
+                            $arr = array();
+                            // array_push($arr,'"'.$cat_name.'"','"'.$cat_desc.'"',0);
+                            array_push($arr,$cat_name,$cat_desc,0);
+                            myInsert("category",$arr,"category.php");
 
                         }
                       ?>
@@ -191,13 +186,14 @@
 
                                if(isset($_GET['delete_id'])){
                                 $del_id = $_GET['delete_id'];
-                                $sql_d = "DELETE FROM category WHERE c_id = '$del_id'";
-                                $d_conn = mysqli_query($conn,$sql_d);
-                                if($d_conn){
-                                    header("location: category.php");
-                                }else{
-                                    echo "Something went wrong!!";
-                                }
+                                myDelete("category" , "category.php", $del_id);
+                               //  $sql_d = "DELETE FROM category WHERE c_id = '$del_id'";
+                               //  $d_conn = mysqli_query($conn,$sql_d);
+                               //  if($d_conn){
+                               //      header("location: category.php");
+                               //  }else{
+                               //      echo "Something went wrong!!";
+                               //  }
                                }
 
                             ?>

@@ -34,15 +34,18 @@
             <div class="container-fluid">
                 <?php
 
-                   if(isset($_GET["do"])){
-                    $do = $_GET["do"];
+                   
+                    $do = isset($_GET["do"])?$_GET["do"]:"Manage";
                     if($do == "Manage"){
                         include("partials/usersTable.php");
                     }
                     if($do == "Add"){
                         include("partials/AddNew.php");
                     }
-                   }
+                    if($do == "delete"){
+
+                    }
+                   
 
                 ?>
  

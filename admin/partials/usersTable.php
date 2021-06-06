@@ -42,8 +42,10 @@
                        ?>
                            <tr>
                               <td><?php echo $c?></td>
-                              <td><?php echo $row["u_image"]?></td>
-                              <td><?php echo $row["u_name"]?></td>
+                              <td><img src = "image/users/<?php echo $row['u_image']?>" >
+                                   <?php echo $row['u_image']?>
+                              </td>
+                              <td><?php echo $row["u_name"]?> </td>
                               <td><?php echo $row["u_gender"]?></td>
                               <td><?php echo $row["u_email"]?></td>
                           
@@ -54,10 +56,10 @@
                               
 
                               <td>
-                                <a href="category.php?see_id=<?php echo $id?>" data-bs-toggle="tooltip" data-bs-placement="top" title="profile" class="me-2"><i style = "color: deepskyblue;" class="fas fa-eye text-warning"></i></a>
+                                <a href="category.php?see_id=<?php echo $row['u_id']?>" data-bs-toggle="tooltip" data-bs-placement="top" title="profile" class="me-2"><i style = "color: deepskyblue;" class="fas fa-eye text-warning"></i></a>
 
                                 <a href="category.php?update_id=<?php echo $id?>" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" class="me-2"><i style = "color: deepskyblue;" class="fas fa-edit"></i></a>
-                                <a onClick="return confirm('Are you sleeping??');" href="category.php?delete_id=<?php echo $id?>" data-bs-toggle="tooltip" data-bs-placement="top" title="delete"><i style = "color: crimson;" class="fas fa-trash"></i></a>
+                                <a onClick="return confirm('Are you sleeping??');" href="users.php?delete_id=<?php echo $row['u_id']?>" data-bs-toggle="tooltip" data-bs-placement="top" title="delete"><i style = "color: crimson;" class="fas fa-trash"></i></a>
                               </td>
 
                               <td><?php
@@ -97,10 +99,10 @@
 
                                if(isset($_GET['delete_id'])){
                                 $del_id = $_GET['delete_id'];
-                                $sql_d = "DELETE FROM category WHERE c_id = '$del_id'";
+                                $sql_d = "DELETE FROM users WHERE u_id = '$del_id'";
                                 $d_conn = mysqli_query($conn,$sql_d);
                                 if($d_conn){
-                                    header("location: category.php");
+                                    header("location: users.php?do=Manage");
                                 }else{
                                     echo "Something went wrong!!";
                                 }
