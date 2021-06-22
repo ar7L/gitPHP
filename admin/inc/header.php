@@ -1,5 +1,9 @@
 <?php include("inc/connection.php");
       include("partials/Fun.php");
+      session_start();
+      if(empty($_SESSION['u_email'])){
+        header("location:index.php");
+      }
   ?>
 
 <!DOCTYPE html>
@@ -99,9 +103,11 @@
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li>
-                            <a class="profile-pic" href="#">
-                                <img src="plugins/images/users/varun.jpg" alt="user-img" width="36"
-                                    class="img-circle"><span class="text-white font-medium">Steave</span></a>
+                            <a class="profile-pic" href="profile.php">
+                                <img src="image/users/<?php echo $_SESSION['u_image']?>" alt="user-img" width="36"
+                                    class="img-circle"><span class="text-white font-medium">
+                                        <?php echo $_SESSION['u_name'];?>
+                                    </span></a>
                         </li>
                         <!-- ============================================================== -->
                         <!-- User profile and search -->

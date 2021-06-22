@@ -58,47 +58,47 @@
             </form>
 
             <?php
-                      if(isset($_POST['add_userr'])){
-                      	// echo "button pressed";
-                      	    $extentions = array("jpg","png","jpg");
-                            $user_name = $_POST["user_name"];
-							$user_email = $_POST["user_email"];
-							$user_password = $_POST["user_password"];
-							$user_address = $_POST["user_address"];
-							$user_phone = $_POST["user_phone"];
-							$user_gender = $_POST["user_gender"];
-							$user_DOB = $_POST["user_DOB"];
-							$user_education = $_POST["user_education"];
-							$user_role = $_POST["user_role"];
-							$user_status = $_POST["user_status"];
-							$image_name = $_FILES['image']['name'];
-							$tmp_name = $_FILES['image']['tmp_name'];
-		
-							$encrypt_pas = sha1($user_password);
+	          if(isset($_POST['add_userr'])){
+	          	// echo "button pressed";
+	          	    $extentions = array("jpg","png","jpg");
+	                $user_name = $_POST["user_name"];
+					$user_email = $_POST["user_email"];
+					$user_password = $_POST["user_password"];
+					$user_address = $_POST["user_address"];
+					$user_phone = $_POST["user_phone"];
+					$user_gender = $_POST["user_gender"];
+					$user_DOB = $_POST["user_DOB"];
+					$user_education = $_POST["user_education"];
+					$user_role = $_POST["user_role"];
+					$user_status = $_POST["user_status"];
+					$image_name = $_FILES['image']['name'];
+					$tmp_name = $_FILES['image']['tmp_name'];
 
-							$art = array();
-							array_push($art,$user_name,$image_name,$user_email,$encrypt_pas,$user_address,$user_phone,$user_DOB,$user_gender,$user_education,$user_role,$user_status);
-						
+					$encrypt_pas = sha1($user_password);
+
+					$art = array();
+					array_push($art,$user_name,$image_name,$user_email,$encrypt_pas,$user_address,$user_phone,$user_DOB,$user_gender,$user_education,$user_role,$user_status);
+				
 
 
-							if(empty($user_name) || empty($user_password) || empty($user_email) ||empty($image_name) ){
-								echo "<span class = 'alert alert-danger'>Fill All required fields </span>";
-							}else{
-								$extn = explode(".", $image_name);
+					if(empty($user_name) || empty($user_password) || empty($user_email) ||empty($image_name) ){
+						echo "<span class = 'alert alert-danger'>Fill All required fields </span>";
+					}else{
+						$extn = explode(".", $image_name);
 
-								if(in_array(strtolower($extn[1]), $extentions)){
-									move_uploaded_file($tmp_name, 'image/users/'.$image_name);
-									myInsert("users",$art,"users.php?do=Manage");
-									
-								}else{
-									echo "Please insert an image File";
-								}
-
-							}
-
+						if(in_array(strtolower($extn[1]), $extentions)){
+							move_uploaded_file($tmp_name, 'image/users/'.$image_name);
+							myInsert("users",$art,"users.php?do=Manage");
 							
+						}else{
+							echo "Please insert an image File";
+						}
 
-							
+					}
+
+					
+
+					
 
                         }
                       

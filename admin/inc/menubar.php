@@ -36,13 +36,13 @@
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item">
-                                    <a href="index.html" class="sidebar-link">
+                                    <a href="posts.php?do=Manage" class="sidebar-link">
                                         <i class="mdi mdi-adjust"></i>
                                         <span class="hide-menu"> View All Posts</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="index2.html" class="sidebar-link">
+                                    <a href="posts.php?do=add" class="sidebar-link">
                                         <i class="mdi mdi-adjust"></i>
                                         <span class="hide-menu"> Add New Posts </span>
                                     </a>
@@ -117,7 +117,7 @@
    
                         <!-- porfile --->
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="profile.html"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="profile.php"
                                 aria-expanded="false">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                                 <span class="hide-menu">Profile</span>

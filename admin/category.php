@@ -1,4 +1,4 @@
-     <?php include("inc/header.php");?>
+    <?php include("inc/header.php");?>
         <!-- ============================================================== -->
         <!-- ============================================================== -->
         <!-- Page wrapper  -->
@@ -109,15 +109,18 @@
                            if(isset($_POST['upd_cat'])){
                             $c_name = $_POST['cat_name'];
                             $c_desc = $_POST['cat_desc'];
-                            $c_stat = $_POST['cat_stat'];
-                            $upd_sql = "UPDATE category SET c_name = '$c_name' , c_desc = '$c_desc', c_status = '$c_stat' WHERE c_id = '$upd_id'";
-                            $upd_conn = mysqli_query($conn , $upd_sql);
-                            // echo $c_stat;
-                            if($upd_conn){
-                              header("Location: category.php");
-                            }else{
-                              echo "Something went wrong";
-                            }
+                            $c_status = $_POST['cat_stat'];
+                            // $upd_sql = "UPDATE category SET c_name = '$c_name' , c_desc = '$c_desc', c_status = '$c_stat' WHERE c_id = '$upd_id'";
+                            // $upd_conn = mysqli_query($conn , $upd_sql);
+                            // // echo $c_stat;
+                            // if($upd_conn){
+                            //   header("Location: category.php");
+                            // }else{
+                            //   echo "Something went wrong";
+                            // }
+                            // $arr_u = array('c_name'=>$c_name,'c_desc'=>$c_desc,'c_status'=>$c_stat);
+                            $arr1 = compact('c_name','c_desc','c_status');
+                            myUpdate("category",$arr1,$upd_id,"category.php");
                            }
 
                        ?>
@@ -209,4 +212,3 @@
             <!-- ============================================================== -->
             <!-- ============================================================== -->
            <?php include("inc/footer.php"); ?>
-        

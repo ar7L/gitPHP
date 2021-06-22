@@ -2,8 +2,6 @@
    
    // include("../inc/connection.php");
 
-   
-
    function concat1($ar){
       $conCat = implode("','", $ar);
    	   return $conCat;
@@ -19,8 +17,6 @@
       }
       return $ar_arr;
    }
-
-
 
    function columns($table){
    	  global $conn; 
@@ -73,4 +69,53 @@
       }
 
     }
+    function my_delete($conn , $table , $id_d , $redirect){
+      $arr = columns($table);
+      $id = $arr[0];
+      // echo $id;
+      $sql_f_d = "DELETE FROM $table WHERE $id = '$id_d'";
+      $result = mysqli_query($conn,$sql_f_d);
+        if($result){
+           header("location: ".$redirect);
+        
+        }else{
+          echo mysqli_error($conn)."<br>";
+          echo $col_names."<br>";
+          echo $con_val."<br>";
+      }
+
+    }
+    function myUpdate($table , $array , $u_id , $redirect){
+    	  global $conn;
+    	  $arr = columns($table);
+    	  $id = $arr[0];
+    	  $parts = array();
+    	  foreach ($array as $key => $value) {
+             $part = "" . $key . " = '".$value."'";
+             array_push($parts, $part);
+		   }
+		  $query =  "UPDATE $table SET ".implode(",", $parts)." WHERE $id = $u_id";
+		  // echo $query;
+		  // print_r($array);
+		  // echo $query."<br>";
+		  // echo $id;
+		  $result_u = mysqli_query($conn , $query);
+		  if($result_u){
+	         header("location: ".$redirect);
+      	
+        }else{
+	      	echo mysqli_error($conn)."<br>";
+	      	
+      }
+	}
+  function get_all($conn , $table){
+    $qu = "SELECT * FROM $table";
+    $re = mysqli_query($conn , $qu);
+    return $out = mysqli_fetch_assoc($re);
+  }
+  function get_by($conn , $table , $query){
+    $qu = "SELECT * FROM $table ".$query;
+    $re = mysqli_query($conn, $qu);
+    return $out = mysqli_fetch_assoc($re);
+  }
  ?>
